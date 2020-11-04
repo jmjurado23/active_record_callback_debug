@@ -1,4 +1,4 @@
-# ActiveRecord::CallbacksDebug
+# ActiveRecordCallbacksDebug
 
 Debug your callbacks in ActiveRecord showing your hooks in a Logger. You can get a list of
 all actions (hooks, validations, proc) in your application and so, you can depure your application
@@ -31,6 +31,18 @@ ActiveRecord::CalbacksDebug.configure do |config|
   config.active = true # Activate process
   config.logger = ::Rails.logger || Logger.new($stdout) # Rails logger or console
 end
+```
+
+## Example
+Once you active the extension, you will receive a log like the next one:
+
+```ruby
+pry(main)> Mymodel.last.save
+D, [2020-11-04T19:50:26.356834 #65826] DEBUG -- : 0.000022 seg | PROC: Topology::Stop => instance_exec => proc: #<Proc:0x00007fe602c375e0 /home/jmjurado23/.asdf/installs/ruby/2.7.1/lib/ruby/gems/2.7.0/gems/mongoid-normalize-strings-0.1.3/lib/mongoid-normalize-strings/normalize.rb:37>
+D, [2020-11-04T19:50:26.357303 #65826] DEBUG -- : 0.000017 seg | VAL: Topology::Stop => Mongoid::Validatable::PresenceValidator > attr: ["name"]
+D, [2020-11-04T19:50:26.357664 #65826] DEBUG -- : 0.000018 seg | VAL: Topology::Stop => Mongoid::Validatable::AssociatedValidator > attr: [:other_models]
+D, [2020-11-04T19:50:26.370173 #65826] DEBUG -- : 0.000016 seg | METH: Topology::Stop => denormalize_info
+
 ```
 
 ## Contributing
