@@ -1,5 +1,3 @@
-module ActiveRecord
-  module CallbacksDebug
-    VERSION = '0.0.1'
-  end
+module ActiveRecordCallbacksDebug
+  VERSION = '0.0.1'
 end

@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'benchmark'
 require 'logger'
 
-describe ActiveRecord::CallbacksDebug do
+describe ActiveRecordCallbacksDebug do
   describe 'Class Methods' do
     let(:params) {
       {
