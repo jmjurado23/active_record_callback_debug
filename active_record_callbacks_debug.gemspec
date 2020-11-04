@@ -7,6 +7,7 @@ Gem::Specification.new do |s|
   s.authors = 'Juan Manuel Jurado'
   s.date = '2020-11-03'
   s.summary = 'Debug callbacks or hook in Active Record'
+  s.license = 'MIT'
   s.files = [
     'lib/active_record_callbacks_debug.rb',
     'lib/active_record_callbacks_debug/configuration.rb',
@@ -17,5 +18,5 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency 'bundler', '~> 2.1'
   s.add_development_dependency 'rspec'
-  s.add_dependency 'activesupport', ['>=5.1']
+  s.add_dependency 'activesupport', ['>=5.1', '<6.0']
 end
