@@ -27,7 +27,7 @@ Only tested in rails 5.1 > and Mongoid 6.x. It could work in other versions but 
 This gem need a configuration file in your rails config/initializer folder
 
 ```ruby
-ActiveRecord::CalbacksDebug.configure do |config|
+ActiveRecord::CallbacksDebug.configure do |config|
   config.active = true # Activate process
   config.logger = ::Rails.logger || Logger.new($stdout) # Rails logger or console
 end
