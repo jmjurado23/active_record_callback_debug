@@ -24,7 +24,7 @@ Only tested in rails 5.1 > and Mongoid 6.x. It could work in other versions but 
 
 ## Usage and configuration
 
-This gem need a configuration file in your rails config/initializer folder
+This gem need a configuration file in your rails config/environments/development.rb or in config/environments/test.rb folder. This method will cause performance issues in production environment.
 
 ```ruby
 ActiveRecord::CallbacksDebug.configure do |config|
@@ -38,10 +38,10 @@ Once you active the extension, you will receive a log like the next one:
 
 ```ruby
 pry(main)> Mymodel.last.save
-D, [2020-11-04T19:50:26.356834 #65826] DEBUG -- : 0.000022 seg | PROC: Topology::Stop => instance_exec => proc: #<Proc:0x00007fe602c375e0 /home/jmjurado23/.asdf/installs/ruby/2.7.1/lib/ruby/gems/2.7.0/gems/mongoid-normalize-strings-0.1.3/lib/mongoid-normalize-strings/normalize.rb:37>
-D, [2020-11-04T19:50:26.357303 #65826] DEBUG -- : 0.000017 seg | VAL: Topology::Stop => Mongoid::Validatable::PresenceValidator > attr: ["name"]
-D, [2020-11-04T19:50:26.357664 #65826] DEBUG -- : 0.000018 seg | VAL: Topology::Stop => Mongoid::Validatable::AssociatedValidator > attr: [:other_models]
-D, [2020-11-04T19:50:26.370173 #65826] DEBUG -- : 0.000016 seg | METH: Topology::Stop => denormalize_info
+D, [2020-11-04T19:50:26.356834 #65826] DEBUG -- : 0.000022 seg | PROC: Mymodel => instance_exec => proc: #<Proc:0x00007fe602c375e0 /home/jmjurado23/.asdf/installs/ruby/2.7.1/lib/ruby/gems/2.7.0/gems/mongoid-normalize-strings-0.1.3/lib/mongoid-normalize-strings/normalize.rb:37>
+D, [2020-11-04T19:50:26.357303 #65826] DEBUG -- : 0.000017 seg | VAL: Mymodel => Mongoid::Validatable::PresenceValidator > attr: ["name"]
+D, [2020-11-04T19:50:26.357664 #65826] DEBUG -- : 0.000018 seg | VAL: Mymodel => Mongoid::Validatable::AssociatedValidator > attr: [:other_models]
+D, [2020-11-04T19:50:26.370173 #65826] DEBUG -- : 0.000016 seg | METH: Mymodel => denormalize_info
 
 ```
 
